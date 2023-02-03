@@ -1,0 +1,20 @@
+{
+	"FileVersion": 3,
+	"SemVersion": "",
+	"RemoteVersionRange": "",
+	"AcceptsAnyRemoteVersion": false,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SmartWaiters",
+	"Description": "",
+	"Category": "Other",
+	"CreatedBy": "",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false
+}
