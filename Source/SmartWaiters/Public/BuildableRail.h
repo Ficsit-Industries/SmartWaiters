@@ -83,6 +83,7 @@ protected:
 	class USplineComponent* mSplineComponent;
 
 	/** The spline meshes for this train track. */
+	// Kompiliert hiermit nicht. TODO: Import prüfen
 	//UPROPERTY( VisibleAnywhere, Category = "Spline" )
 	//class UFGInstancedSplineMeshComponent* mInstancedSplineComponent;
 
