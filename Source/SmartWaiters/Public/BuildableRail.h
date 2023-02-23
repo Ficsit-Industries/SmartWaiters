@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Buildables/FGBuildable.h"
 #include "Components/SplineComponent.h"
+#include "RailHologram.h"
 #include "FGSignificanceInterface.h"
 #include "FGSplineBuildableInterface.h"
 #include "RailConnectionComponent.h"
@@ -57,6 +58,8 @@ public:
 	// End IFGSplineBuildableInterface
 
 protected:
+	friend class ARailHologram;
+
 	/** Mesh to use for his rail. */
 	UPROPERTY( EditDefaultsOnly, Category = "Rails" )
 	class UStaticMesh* mMesh;

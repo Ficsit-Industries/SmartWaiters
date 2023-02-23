@@ -16,6 +16,11 @@ class SMARTWAITERS_API ARailHologram : public AFGSplineHologram
 public:
 	ARailHologram();
 
+	// Begin AActor Interface
+	//virtual void GetLifetimeReplicatedProps( TArray< FLifetimeProperty >& OutLifetimeProps ) const override;
+	virtual void BeginPlay() override;
+	// End AActor Interface
+
 	// Begin AFGHologram Interface
 	virtual void SetHologramLocationAndRotation( const FHitResult& hitResult ) override;
 
@@ -42,8 +47,11 @@ protected:
 	// Begin AFGBuildableHologram Interface
 	//virtual void CheckValidFloor() override;
 	//virtual void CheckValidPlacement() override;
-	//virtual void ConfigureActor( class AFGBuildable* inBuildable ) const override;
-	virtual void ConfigureComponents( class AFGBuildable* inBuildable ) const override;*/
+	virtual void ConfigureActor( class AFGBuildable* inBuildable ) const override;
+	
+	
+	//virtual void ConfigureComponents( class AFGBuildable* inBuildable ) const override;*/
+	
 	// End AFGBuildableHologram Interface
 
 	UFUNCTION(BlueprintPure)

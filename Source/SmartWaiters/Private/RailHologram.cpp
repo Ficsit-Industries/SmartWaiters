@@ -1,11 +1,19 @@
 
 #include "RailHologram.h"
 #include "RailConnectionComponent.h"
+#include "BuildableRail.h"
 #include "SmartWaiters.h"
 
 ARailHologram::ARailHologram()
 {
 
+}
+
+void BeginPlay()
+{
+	ABuildableRail* rail = this->GetDefaultBuildable<ABuildableRail>();
+	this->mMesh = rail->mMesh;
+	this->mMeshLength = rail->mMeshLength;
 }
 
 static URailConnectionComponent* GetValidConnection( const FHitResult& hitResult)
@@ -71,10 +79,10 @@ void ARailHologram::SetHologramLocationAndRotation( const FHitResult& hitResult 
 	}*/
 }
 
-void ConfigureComponents( class AFGBuildable* inBuildable ) const
+/*void ConfigureComponents( class AFGBuildable* inBuildable ) const
 {
-
-}
+	
+}*/
 
 bool ARailHologram::DoMultiStepPlacement(bool isInputFromARelease)
 {
@@ -94,7 +102,7 @@ int32 ARailHologram::GetBaseCostMultiplier() const
 // 1
 bool ARailHologram::IsValidHitResult( const FHitResult& hitResult ) const
 {
-	UE_LOG(LogSmartWaiters, Warning, TEXT("IsValidHitResult"));
+	//UE_LOG(LogSmartWaiters, Warning, TEXT("IsValidHitResult"));
 
 	return (hitResult.GetActor() != NULL);
 }
@@ -114,7 +122,7 @@ bool ARailHologram::TrySnapToActor( const FHitResult& hitResult )
 		this->AutoRouteSpline(
 			connection->GetConnectorLocation(),
 			connection->GetConnectorNormal(),
-			connection->GetConnectorLocation() + connection->GetConnectorNormal() * 100,
+			connection->GetConnectorLocation() + connection->GetConnectorNormal() * 200,
 			connection->GetConnectorNormal());
 	}
 	else if (this->mBuildStep == ESplineHologramBuildStep::SHBS_PlacePoleOrSnapEnding)
@@ -122,7 +130,7 @@ bool ARailHologram::TrySnapToActor( const FHitResult& hitResult )
 		this->AutoRouteSpline(
 			this->mSnappedConnectionComponents[0]->GetConnectorLocation(),
 			this->mSnappedConnectionComponents[0]->GetConnectorNormal(),
-			connection->GetConnectorLocation() + connection->GetConnectorNormal() * 100,
+			connection->GetConnectorLocation() + connection->GetConnectorNormal() * 200,
 			connection->GetConnectorNormal());
 	}
 	this->UpdateSplineComponent();
@@ -141,10 +149,10 @@ float ARailHologram::GetHologramHoverHeight() const
 	return 3.5f;
 }
 
-/*void ARailHologram::ConfigureActor( class AFGBuildable* inBuildable ) const
+void ARailHologram::ConfigureActor( class AFGBuildable* inBuildable ) const
 {
-	this->mSplineMeshes.Add(CreateDefaultSubobject<USplineMeshComponent>(TEXT("SplineMeshComponent")));
-}*/
+
+}
 
 bool ARailHologram::ValidateIncline() { return true; }
 bool ARailHologram::ValidateMinLength() { return true; }
