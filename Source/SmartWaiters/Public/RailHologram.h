@@ -14,6 +14,7 @@ class SMARTWAITERS_API ARailHologram : public AFGSplineHologram
 {
 	GENERATED_BODY()
 public:
+
 	ARailHologram();
 
 	// Begin AActor Interface
@@ -47,7 +48,7 @@ protected:
 	// Begin AFGBuildableHologram Interface
 	//virtual void CheckValidFloor() override;
 	//virtual void CheckValidPlacement() override;
-	virtual void ConfigureActor( class AFGBuildable* inBuildable ) const override;
+	//virtual void ConfigureActor( class AFGBuildable* inBuildable ) const override;
 	
 	
 	//virtual void ConfigureComponents( class AFGBuildable* inBuildable ) const override;*/

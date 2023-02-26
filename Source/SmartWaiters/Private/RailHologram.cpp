@@ -9,9 +9,10 @@ ARailHologram::ARailHologram()
 
 }
 
-void BeginPlay()
+void ARailHologram::BeginPlay()
 {
-	ABuildableRail* rail = this->GetDefaultBuildable<ABuildableRail>();
+	ABuildableRail* rail = mBuildClass->GetDefaultObject< ABuildableRail >();
+	//ABuildableRail* rail = this->GetDefaultBuildable<ABuildableRail>();
 	this->mMesh = rail->mMesh;
 	this->mMeshLength = rail->mMeshLength;
 }
@@ -149,10 +150,10 @@ float ARailHologram::GetHologramHoverHeight() const
 	return 3.5f;
 }
 
-void ARailHologram::ConfigureActor( class AFGBuildable* inBuildable ) const
+/*void ARailHologram::ConfigureActor( class AFGBuildable* inBuildable ) const
 {
 
-}
+}*/
 
 bool ARailHologram::ValidateIncline() { return true; }
 bool ARailHologram::ValidateMinLength() { return true; }
