@@ -11,6 +11,8 @@ ARailHologram::ARailHologram()
 
 void ARailHologram::BeginPlay()
 {
+	Super::BeginPlay();
+
 	ABuildableRail* rail = mBuildClass->GetDefaultObject< ABuildableRail >();
 	//ABuildableRail* rail = this->GetDefaultBuildable<ABuildableRail>();
 	this->mMesh = rail->mMesh;
@@ -165,6 +167,8 @@ bool ARailHologram::ValidateMinLength() { return true; }
 
 void ARailHologram::AutoRouteSpline( const FVector& startConnectionPos, const FVector& startConnectionNormal, const FVector& endConnectionPos, const FVector& endConnectionNormal )
 {
+	UE_LOG(LogSmartWaiters, Warning, TEXT("AutoRouteSpline"));
+
 	//FOccluderVertexArray points = {startConnectionPos, endConnectionPos};
 	//this->mSplineComponent->SetSplinePoints(points, ESplineCoordinateSpace::World);
 	
